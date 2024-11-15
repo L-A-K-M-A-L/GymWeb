@@ -16,6 +16,7 @@ const Contact = () => {
                         scrolling="no"
                         src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=YOUR_LOCATION_HERE&ie=UTF8&t=&z=14&iwloc=B&output=embed" 
                         style={{ filter: 'grayscale(1) contrast(1.2) opacity(0.4)' }}
+                        allow='fullscreen'
                     ></iframe>
                 </div>
                 <div className="container px-5 py-24 mx-auto flex">
