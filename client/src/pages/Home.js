@@ -6,11 +6,11 @@ import HomeBody from '../components/HomeBody'
 const Home = () => {
     return (
         <>
-            <div className='flex flex-col min-h-screen'>
+            <div className='flex flex-col min-h-screen font-mono'>
                 <header className='z-10'>
                     <Header />
                 </header>
-                <main className='flex-grow'>
+                <main className='flex-grow bg-slate-100'>
                     <HomeBody />
                 </main>
                 <footer>
