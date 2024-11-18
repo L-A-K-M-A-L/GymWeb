@@ -10,11 +10,15 @@ connection();
 
 // middleware
 app.use(express.json());
-app.use(cors({
-    origin: 'http://localhost:3001', // specify the origin you want to allow
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true // if you need to send cookies or other credentials
-  }));
+const corsOptions = {
+    origin: 'http://localhost:3001', // Allow the frontend to make requests
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    preflightContinue: false,  // Allow preflight OPTIONS requests
+    optionsSuccessStatus: 204, // Status code for successful preflight request
+  };
+
+  app.use(cors(corsOptions));
 
 app.use('/', userRoutes);
 

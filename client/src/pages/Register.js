@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { baseURL } from '../utils/constant';
 import axios from 'axios';
+import CustomHeaders from '../components/CustomHeader';
 
 
 const Register = () => {
@@ -92,7 +93,8 @@ const Register = () => {
 
   return (
     <>
-      <div className="h-full bg-gray-400 dark:bg-gray-900">
+    <CustomHeaders />
+      <div className="h-full bg-gray-400 dark:bg-gray-900 py-16">
         <div className="mx-auto">
           <div className="flex justify-center px-6 py-12">
             <div className="w-full xl:w-3/4 lg:w-11/12 flex">

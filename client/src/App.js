@@ -3,7 +3,9 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import UserDashboard from './pages/UserDashboard';
-
+import UserLogin from './components/userComponent/UserLogin';
+import AdminLogin from './components/adminComponent/AdminLogin';
+import AdminDashboard from './components/adminComponent/AdminDashboard';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter(
@@ -12,6 +14,9 @@ const router = createBrowserRouter(
     { path: "/Login", element: <Login /> },
     { path: "/Register", element: <Register /> },
     { path: "/UserDashboard", element: <UserDashboard /> },
+    { path: "/UserLogin", element: <UserLogin /> },
+    { path: "/AdminLogin", element: <AdminLogin /> },
+    { path: "/AdminDashboard", element: <AdminDashboard /> },
   ],
   {
     future: {
