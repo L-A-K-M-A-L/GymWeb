@@ -14,7 +14,7 @@ const Register = () => {
   const [rePassword, setRePassword] = useState('');
   const [stateMessage, setStateMessage] = useState('');
 
-// below both function are correect but axios are better
+  // below both function are correect but axios are better
   // const handleRegister = async (e) => {
   //   e.preventDefault();
   //   if (password !== rePassword) {
@@ -70,10 +70,10 @@ const Register = () => {
           email,
           password
         });
-  
+
         // Access the response data directly
         const data = response.data;
-  
+
         if (data.status === 'success') {
           alert('Registration Successful!');
           localStorage.setItem('userToken', data.token);
@@ -88,12 +88,12 @@ const Register = () => {
       }
     }
   };
-  
-  
+
+
 
   return (
     <>
-    <CustomHeaders />
+      <CustomHeaders />
       <div className="h-full bg-gray-400 dark:bg-gray-900 py-16">
         <div className="mx-auto">
           <div className="flex justify-center px-6 py-12">
@@ -184,23 +184,25 @@ const Register = () => {
                   </div>
                   <div className="mb-6 text-center">
                     <input
-                      className="w-full px-4 py-2 text-white bg-indigo-500 rounded-full hover:bg-indigo-300 dark:text-white focus:outline-none focus:shadow-outline transition duration-100"
+                      className="w-full px-4 py-2 text-white bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full shadow-md hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 transition-all duration-300 ease-in-out"
                       type="submit"
-                      value='Register Account'
+                      value="Register Account"
                     />
-
                   </div>
+
                   <hr className="mb-6 border-t" />
+
                   <div className="text-center">
                     <Link
                       to="/login"
                       className="inline-block text-sm text-slate-500 dark:text-white align-baseline">
-                      Already have an account ?
-                      <span className='text-indigo-500 font-bold underline transition duration-100 hover:text-indigo-300 ml-2'>
+                      Already have an account?
+                      <span className="text-indigo-500 font-bold underline transition duration-100 hover:text-indigo-300 ml-2">
                         Login Now!
                       </span>
                     </Link>
                   </div>
+
                 </form>
               </div>
             </div>
