@@ -1,68 +1,55 @@
-// UserDashboard.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import Header from '../components/userComponent/UserHeader';
-import WorkoutPlan from "../components/userComponent/WorkoutPlan"
-import PaymentForm from '../components/userComponent/Payment';
-
+import UserHeader from '../components/userComponent/UserHeader';
+import UserDetails from '../components/userComponent/UserDetails';
+import axios from 'axios';
+import { baseURL } from '../utils/constant';
 
 const UserDashboard = () => {
-  const [selectedPlan, setSelectedPlan] = useState('');
-  const [view, setView] = useState('workout'); // 'workout' or 'payment'
+    const [firstName, setFirstName] = useState('Guest');
+    const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState('Guest');
+    useEffect(() => {
+        const userEmail = localStorage.getItem('userEmail'); // Get the email from localStorage
 
-  const navigate = useNavigate();
+        if (!userEmail) {
+            navigate('/login');
+            return;
+        }
 
-  const handlePlanChange = (plan) => {
-    setSelectedPlan(plan);
-  };
+        axios
+            .post(`${baseURL}/api/getUserDetails`, { email: userEmail })
+            .then(response => {
+                if (response.status === 200) {
+                    setFirstName(response.data.user.firstName); // Set firstName from the response
+                } else {
+                    navigate('/login');
+                }
+            })
+            .catch(err => {
+                console.error('Error fetching user details:', err);
+                navigate('/login');
+            });
+    }, [navigate]);
 
-  const handlePayment = () => {
-    // Handle payment logic here
-    console.log(`Selected Plan: ${selectedPlan}`);
-  };
-
-  const toggleView = () => {
-    setView(view === 'workout' ? 'payment' : 'workout');
-  };
-
-
-
-  return (
-    <>
-      <div className='flex flex-col min-h-screen font-mono bg-slate-400'>
-        <Header />
-        <main className='flex-grow py-32 px-4 md:px-20'>
-          <div className='text-xl text-white mb-8'>
-            HELLO <span className='text-3xl text-white ml-1'>{firstName}!</span>
-            <hr className='mt-2' />
-          </div>
-          <div className='flex justify-end mb-4'>
-            <button
-              className='bg-gray-500 text-white p-2 rounded hover:bg-gray-600 transition duration-300'
-              onClick={toggleView}
-            >
-              {view === 'workout' ? 'Make a Payment' : 'View Workout Plan'}
-            </button>
-          </div>
-          {view === 'workout' ? (
-            <WorkoutPlan />
-          ) : (
-            <PaymentForm
-              selectedPlan={selectedPlan}
-              handlePlanChange={handlePlanChange}
-              handlePayment={handlePayment}
-            />
-          )}
-        </main>
-        <footer>
-          <Footer />
-        </footer>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <div className="flex flex-col min-h-screen font-mono bg-slate-400">
+                <UserHeader />
+                <main className="flex-grow py-10 md:py-32 px-4 md:px-20">
+                    <div className="text-xl text-white mb-8">
+                        HELLO <span className="text-3xl text-white ml-1">{firstName}!</span>
+                        <hr className="mt-2" />
+                    </div>
+                    <UserDetails />
+                </main>
+                <footer>
+                    <Footer />
+                </footer>
+            </div>
+        </>
+    );
 };
 
 export default UserDashboard;

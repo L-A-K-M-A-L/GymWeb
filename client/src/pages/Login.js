@@ -25,7 +25,6 @@ const UserDashboard = () => {
                 {view === 'user' ? 'Are you an Admin?' : 'Are you a Member?'}
               </button>
             </div>
-
           </div>
 
           {view === 'user' ? (

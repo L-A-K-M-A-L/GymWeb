@@ -22,7 +22,7 @@ const corsOptions = {
 
 app.use('/', userRoutes);
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 
 app.get('/', (req, res) => {
     res.send(`Server listening to port= ${port}...`);

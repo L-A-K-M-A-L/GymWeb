@@ -6,6 +6,7 @@ import UserDashboard from './pages/UserDashboard';
 import UserLogin from './components/userComponent/UserLogin';
 import AdminLogin from './components/adminComponent/AdminLogin';
 import AdminDashboard from './components/adminComponent/AdminDashboard';
+import WorkoutPlan from './components/userComponent/WorkoutPlan';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
     { path: "/UserLogin", element: <UserLogin /> },
     { path: "/AdminLogin", element: <AdminLogin /> },
     { path: "/AdminDashboard", element: <AdminDashboard /> },
+    { path: "/WorkoutPlan", element: <WorkoutPlan /> },
   ],
   {
     future: {

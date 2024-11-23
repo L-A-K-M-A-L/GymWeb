@@ -45,10 +45,25 @@ module.exports.loginUser = async (req, res) => {
         }
 
         // Generate JWT token
-        const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '2h' });
 
-        res.status(200).json({ message: 'Login successful', status: 'success', token, id: user._id });
+        res.status(200).json({ message: 'Login successful', token, id: user._id });
     } catch (err) {
         res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
     }
 };
+
+module.exports.passUserDetails = async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const user = await userModel.findOne({email});
+        if (!user) {
+            return res.status(404).json({ status: 'fail', message: 'User not found' });
+        }
+
+        res.status(200).json({ status: 'success', user });
+    } catch (err) {
+        res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
+    }
+}

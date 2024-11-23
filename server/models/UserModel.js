@@ -11,7 +11,8 @@ const userSchema = new moongose.Schema({
     },
     email : {
         type: String,
-        required : true
+        required : true,
+        unique: true
     },
     password :{
         type: String,

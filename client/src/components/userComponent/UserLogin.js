@@ -19,7 +19,10 @@ const Login = () => {
         await axios.post(`${baseURL}/api/login`, { email, password })
             .then(response => {
                 if (response.status === 200) {
+                    localStorage.setItem('userEmail', email);   
+                    localStorage.setItem('userToken', response.data.token);
                     navigate('/UserDashboard')
+
                 } else {
                     setStateMessage("Check your Credentials");
                 }
