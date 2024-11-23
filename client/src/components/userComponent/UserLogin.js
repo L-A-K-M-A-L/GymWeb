@@ -39,7 +39,7 @@ const Login = () => {
     return (
 
         <>
-            <div className="h-full bg-gray-400 dark:bg-gray-900">
+            <div className="h-full">
                 <div className="mx-auto">
                     <div className="flex justify-center px-6 py-10">
                         <div className="w-full xl:w-3/4 lg:w-11/12 flex">

@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AdminDashboard from '../AdminDashboard';
+import AddAdmin from '../addminOperations/AddAdmin';
+import AddUser from '../addminOperations/AddUser';
+import Payments from '../../../services/Payment';
 
 const AdminHeader = () => {
   return (
@@ -18,16 +22,16 @@ const AdminHeader = () => {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-8">
-          <Link to="/admin/dashboard" className="text-lg hover:text-indigo-300 transition duration-200 ease-in-out">
+          <Link to={'/AdminDashboard'} className="text-lg hover:text-indigo-300 transition duration-200 ease-in-out bg-salte-500">
             Dashboard
           </Link>
-          <Link to="/admin/add-admin" className="text-lg hover:text-indigo-300 transition duration-200 ease-in-out">
+          <Link to={'/AddAdmin'} className="text-lg hover:text-indigo-300 transition duration-200 ease-in-out">
             Add Admin
           </Link>
-          <Link to="/admin/add-user" className="text-lg hover:text-indigo-300 transition duration-200 ease-in-out">
+          <Link to={'/AddUser'} className="text-lg hover:text-indigo-300 transition duration-200 ease-in-out">
             Add User
           </Link>
-          <Link to="/admin/payments" className="text-lg hover:text-indigo-300 transition duration-200 ease-in-out">
+          <Link to={'/Payments'} className="text-lg hover:text-indigo-300 transition duration-200 ease-in-out">
             Payments
           </Link>
         </nav>

@@ -22,15 +22,16 @@ const UserDashboard = () => {
                 className='bg-gray-500 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 md:px-6 md:py-3 transition-all duration-300'
                 onClick={toggleView}
               >
-                {view === 'user' ? 'Are you an Admin?' : 'Are you a Member?'}
+                {view === 'user' ? 'Are you a Member?' : 'Are you an Admin?'  }
               </button>
             </div>
           </div>
 
           {view === 'user' ? (
-            <UserLogin />
-          ) : (
             <AdminLogin />
+          ) : (
+            
+            <UserLogin />
           )}
         </main>
       </div>
