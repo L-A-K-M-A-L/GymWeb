@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import AdminHeader from '../adminDahboardComponent/AdminHeader'
 import AdminFooter from '../adminDahboardComponent/AdminFooter'
 import axios from 'axios'
-import {baseURL} from '../../../utils/constant'
-import {Link, useNavigate} from 'react-router-dom'
+import { baseURL } from '../../../utils/constant'
+import { Link, useNavigate } from 'react-router-dom'
 
 const AddAdmin = () => {
     const [firstName, setFirstName] = useState('');
@@ -18,35 +18,35 @@ const AddAdmin = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         if (password !== rePassword) {
-          setStateMessage("Passwords don't match");
-          setPassword('');
-          setRePassword('');
+            setStateMessage("Passwords don't match");
+            setPassword('');
+            setRePassword('');
         } else {
-          try {
-            const response = await axios.post(`${baseURL}/api/registerAdmin`, {
-              firstName,
-              lastName,
-              email,
-              password
-            });
-    
-            // Access the response data directly
-            const data = response.data;
-    
-            if (data.status === 'success') {
-              alert('Registration Successful!');
-              localStorage.setItem('adminToken', data.token);
-              console.log(data.token);
-              setStateMessage(data.message || 'Registration failed');
-            } else {
-              setStateMessage(data.message || 'Registration failed');
+            try {
+                const response = await axios.post(`${baseURL}/api/registerAdmin`, {
+                    firstName,
+                    lastName,
+                    email,
+                    password
+                });
+
+                // Access the response data directly
+                const data = response.data;
+
+                if (data.status === 'success') {
+                    alert('Registration Successful!');
+                    localStorage.setItem('adminToken', data.token);
+                    console.log(data.token);
+                    setStateMessage(data.message || 'Registration failed');
+                } else {
+                    setStateMessage(data.message || 'Registration failed');
+                }
+            } catch (err) {
+                console.error('Registration Failed:', err.response?.data?.message || err.message);
+                setStateMessage('Registration Failed: ' + (err.response?.data?.message || err.message));
             }
-          } catch (err) {
-            console.error('Registration Failed:', err.response?.data?.message || err.message);
-            setStateMessage('Registration Failed: ' + (err.response?.data?.message || err.message));
-          }
         }
-      };
+    };
 
 
     return (
@@ -58,13 +58,13 @@ const AddAdmin = () => {
                 </header>
 
 
-                <main className="flex-grow sm:px-6">
-                    <div className="h-full bg-gray-400 dark:bg-gray-900 py-16">
+                <main className="flex-grow sm:px-6 py-6 dark:bg-slate-300">
+                    <div className="h-full bg-gray-300 font-mono rounded-lg shadow-md dark:bg-gray-900 py-16">
                         <div className="mx-auto">
                             <div className="flex justify-center py-12">
                                 <div className="w-full xl:w-3/4 lg:w-11/12 flex">
                                     <div
-                                        className="w-full h-auto bg-gray-400 dark:bg-gray-800 hidden lg:block lg:w-5/12 bg-cover rounded-r-md">
+                                        className="w-full h-auto bg-gray-00 dark:bg-gray-800 hidden lg:block lg:w-5/12 bg-cover rounded-r-md">
                                         <img src='/images/logo.png' alt='LOGO' className='w-full h-full rounded-l' />
                                     </div>
                                     <div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
@@ -157,7 +157,7 @@ const AddAdmin = () => {
 
                                             <hr className="mb-6 border-t" />
 
-                                            
+
 
                                         </form>
                                     </div>

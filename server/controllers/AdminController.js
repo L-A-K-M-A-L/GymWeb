@@ -42,9 +42,25 @@ module.exports.adminLogin = async (req, res) => {
         }
 
         // Generate JWT token
-        const token = jwt.sign({ email: admin.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ email: admin.email }, process.env.JWT_SECRET, { expiresIn: '2h' });
+
 
         res.status(200).json({ message: 'Login successful', token, id: admin._id });
+    } catch (err) {
+        res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
+    }
+};
+
+module.exports.passAdminDetails = async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const admin = await adminModel.findOne({email});
+        if (!admin) {
+            return res.status(404).json({ status: 'fail', message: 'User not found' });
+        }
+
+        res.status(200).json({ status: 'success', admin });
     } catch (err) {
         res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
     }

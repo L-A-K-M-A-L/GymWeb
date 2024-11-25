@@ -20,13 +20,15 @@ const Login = () => {
         await axios.post(`${baseURL}/api/adminlogin`, { email, password })
             .then(response => {
                 if (response.status === 200) {
+                    localStorage.setItem('adminEmail', email);
+                    localStorage.setItem('adminToken', response.data.token);
                     navigate('/AdminDashboard');
                 } else {
                     setStateMessage("Check your Credentials");
                 }
             })
             .catch(err => {
-                console.error('Axios error:', err); // Log the full error object for more details
+                console.error('Axios error:', err); 
                 const message = err.response?.data?.message || "Something went wrong. Please try again.";
                 setStateMessage(message);
             });

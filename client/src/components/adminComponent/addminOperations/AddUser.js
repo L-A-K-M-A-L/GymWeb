@@ -44,8 +44,8 @@ const AddUser = () => {
                 </header>
 
 
-                <main className="flex-grow sm:px-6 ">
-                <div className="h-full bg-gray-400 dark:bg-gray-900 py-16">
+                <main className="flex-grow sm:px-6 py-6">
+                <div className="h-full rounded-lg shadow-md dark:bg-gray-900 py-16 font-mono bg-gray-300">
                         <div className="mx-auto">
                             <div className="flex justify-center py-12">
                                 <div className="w-full xl:w-3/4 lg:w-11/12 flex">
