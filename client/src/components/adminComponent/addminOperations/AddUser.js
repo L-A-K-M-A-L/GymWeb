@@ -7,10 +7,10 @@ import { baseURL } from '../../../utils/constant';
 
 const AddUser = () => {
     const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [weight, setWeight] = useState();
-    const [height, setHeight] = useState();
     const [membership, setMembership] = useState('');
+    const [phone, setPhone] = useState('');
+    const [age, setAge] = useState('');
+    const [planActivateDate, setPlanActivateDate] = useState('');
     const [stateMessage, setStateMessage] = useState('');
 
     const handleMemberRegistration = async (e) => {
@@ -21,8 +21,8 @@ const AddUser = () => {
                 email,
                 membership,
                 phone,
-                height,
-                weight  
+                age,
+                planActivateDate  
             });
 
             const data = response.data;
@@ -102,30 +102,30 @@ const AddUser = () => {
                                             <div className="mb-4 md:flex md:justify-between">
                                                 <div className="mb-4 md:mr-2 md:mb-0">
                                                     <label className="block mb-2 text-md font-bold text-slate-500 dark:text-white" htmlFor="password">
-                                                        Height
+                                                        Age
                                                     </label>
                                                     <input
                                                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-black border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                                         type="text"
                                                         required
-                                                        placeholder="Height"
-                                                        value={height}
-                                                        onChange={e => setHeight(e.target.value)}
+                                                        placeholder="Age"
+                                                        value={age}
+                                                        onChange={e => setAge(e.target.value)}
 
                                                     />
 
                                                 </div>
                                                 <div className="md:ml-2">
                                                     <label className="block mb-2 text-md font-bold text-slate-500 dark:text-white" htmlFor="c_password">
-                                                        Weight
+                                                        Date
                                                     </label>
                                                     <input
                                                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-black border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        type="text"
-                                                        placeholder="Weight"
+                                                        type="date"
+                                                        placeholder=""
                                                         required
-                                                        value={weight}
-                                                        onChange={e => setWeight(e.target.value)}
+                                                        value={planActivateDate}
+                                                        onChange={e => setPlanActivateDate(e.target.value)}
                                                     />
                                                 </div>
 

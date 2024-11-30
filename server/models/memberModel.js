@@ -13,11 +13,11 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    height : {
+    age : {
         type: String,
         required: true
     },
-    weight : {
+    planActivateDate : {
         type: String,
         required: true
     }
