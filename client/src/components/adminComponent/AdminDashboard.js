@@ -2,6 +2,7 @@ import React from 'react'
 import AdminHeader from './adminDahboardComponent/AdminHeader'
 import AdminBody from './adminDahboardComponent/AdminBody'
 import AdminFooter from './adminDahboardComponent/AdminFooter'
+import FindMember from './addminOperations/FindMember'
 
 const AdminDashboard = () => {
   return (
@@ -14,6 +15,7 @@ const AdminDashboard = () => {
 
       <main className="flex-grow py-6 px-4 sm:px-6 lg:px-8">
         <AdminBody />
+        <FindMember />
       </main>
 
       <footer>

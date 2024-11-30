@@ -67,3 +67,16 @@ module.exports.passUserDetails = async (req, res) => {
         res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
     }
 }
+
+
+module.exports.getUserLength = async (req, res) => {
+  try {
+
+    const userCount = await userModel.countDocuments();
+
+    return res.status(200).json({ count: userCount });
+  } catch (error) {
+    console.error("Error fetching user count:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};
