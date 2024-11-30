@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const UserHeader = () => {
   const navigate = useNavigate();
-  const [isNavOpen, setIsNavOpen] = useState(false); // State to toggle navbar
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleLogOut = () => {
     if (window.confirm("Are you sure you want to log out?")) {
@@ -22,7 +22,7 @@ const UserHeader = () => {
 
   return (
     <header className="flex flex-col md:flex-row font-mono justify-between items-center text-gray-600 bg-gray-200 p-5 shadow-md md:fixed top-0 left-0 right-0 z-50">
-      {/* Logo and Branding */}
+      
       <div className="flex items-center text-3xl">
         <Link
           to="/"
@@ -40,7 +40,7 @@ const UserHeader = () => {
         </Link>
       </div>
 
-      {/* Hamburger menu for small screens */}
+      {/* Hamburger menu */}
       <div className="md:hidden flex items-center">
         <button
           onClick={() => setIsNavOpen(!isNavOpen)}
@@ -73,17 +73,27 @@ const UserHeader = () => {
           to="/UserDashboard"
           className={`px-4 py-2 rounded-lg ${
             window.location.pathname === "/UserDashboard"
-              ? "bg-gray-300"
+              ? "bg-gray-400 text-black"
               : "text-gray-700 hover:bg-gray-200"
           }`}
         >
-          Details
+          Your Stat
+        </Link>
+        <Link
+          to="/InstructorStat"
+          className={`px-4 py-2 rounded-lg ${
+            window.location.pathname === "/InstructorStat"
+              ? "bg-gray-400 text-black"
+              : "text-gray-700 hover:bg-gray-200"
+          }`}
+        >
+          Instructor Stat
         </Link>
         <Link
           to="/WorkoutPlan"
           className={`px-4 py-2 rounded-lg ${
             window.location.pathname === "/WorkoutPlan"
-              ? "bg-gray-300"
+              ? "bg-gray-400 text-black"
               : "text-gray-700 hover:bg-gray-200"
           }`}
         >
@@ -95,7 +105,7 @@ const UserHeader = () => {
       <div className="flex items-center gap-4 mt-4 md:mt-0">
         <button
           onClick={handleLogOut}
-          className="inline-flex items-center bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 transition-all duration-300"
+          className="inline-flex items-center bg-gradient-to-r from-blue-200 to-gray-400 text-black font-mono py-2 px-4 rounded-lg shadow-md hover:from-blue-400 hover:to-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 transition-all duration-300"
         >
           <img src="/svg/logout.svg" alt="Logout" className="w-6 mr-2" />
           Logout
