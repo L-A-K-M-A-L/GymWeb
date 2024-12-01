@@ -55,7 +55,7 @@ const Register = () => {
               <img src='/images/logo.png' alt='LOGO' className='w-full h-full rounded-l' />
             </div>
             <div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
-              <h3 className="py-4 text-4xl text-center text-slate-400 dark:text-white">Join with Us Today!</h3>
+              <h3 className="py-4 text-5xl text-center text-slate-600 dark:text-white">Join with Us Today!</h3>
               <form onSubmit={handleRegister} className="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 rounded">
                 <div className="mb-4 flex flex-wrap gap-4">
                   <div className="w-full">
@@ -135,7 +135,7 @@ const Register = () => {
 
                 <div className="mb-6 text-center">
                   <input
-                    className="w-full px-4 py-2 text-white bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full shadow-md hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 transition-all duration-300 ease-in-out"
+                    className="w-full px-4 py-2 hover:cursor-pointer text-black bg-gradient-to-r from-blue-200 to-gray-400 rounded-full shadow-md hover:from-blue-300 hover:to-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 transition-all duration-300 ease-in-out"
                     type="submit"
                     value="Register Account"
                   />
