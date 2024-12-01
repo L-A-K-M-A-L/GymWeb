@@ -46,35 +46,33 @@ const AdminBody = () => {
     <>
       <div className="max-w-7xl mx-auto">
 
-        {/* Dashboard Cards or Widgets */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Total Users Card */}
+        
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-700">TOTAL USERS</h3>
             <p className="mt-2 text-gray-500">{users} Users</p>
           </div>
 
-          {/* Net Growth Card */}
+        
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-700">TOTAL MEMBERS</h3>
             <p className="mt-2 text-gray-500">{members} Members</p>
           </div>
 
-          {/* Monthly Income Card */}
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-700">TOTAL ADMIN</h3>
-            <p className="mt-2 text-gray-500">{admin} admins</p>
+            <p className="mt-2 text-gray-500">{admin} Admins</p>
           </div>
         </div>
 
-        {/* Side-by-side layout for FindMember and PaymentForm */}
+        
         <div className="flex flex-wrap gap-6 mt-8">
-          {/* FindMember Component */}
+          
           <div className="flex-1 p-4 bg-white rounded-lg shadow-md">
             <FindMember />
           </div>
 
-          {/* PaymentForm Component */}
+        
           <div className="flex-1 p-4 bg-white rounded-lg shadow-md">
             <PaymentForm />
           </div>
