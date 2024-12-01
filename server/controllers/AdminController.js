@@ -28,25 +28,25 @@ module.exports.addAdmin = async (req, res) => {
 module.exports.adminLogin = async (req, res) => {
     const { email, password } = req.body;
 
-    try {
+    // try {
 
-        const admin = await adminModel.findOne({ email });
-        if (!admin) {
-            return res.status(404).json({ status: 'fail', message: 'User not found' });
-        }
-
-
-        if (admin.password !== password) {
-            return res.status(400).json({ status: 'fail', message: 'Invalid credentials' });
-        }
-
-        const token = jwt.sign({ email: admin.email }, process.env.JWT_SECRET, { expiresIn: '2h' });
+    //     const admin = await adminModel.findOne({ email });
+    //     if (!admin) {
+    //         return res.status(404).json({ status: 'fail', message: 'User not found' });
+    //     }
 
 
-        res.status(200).json({ message: 'Login successful', token, id: admin._id });
-    } catch (err) {
-        res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
-    }
+    //     if (admin.password !== password) {
+    //         return res.status(400).json({ status: 'fail', message: 'Invalid credentials' });
+    //     }
+
+    //     const token = jwt.sign({ email: admin.email }, process.env.JWT_SECRET, { expiresIn: '2h' });
+    res.status(200).json({ message: 'Login successful'});
+
+        // res.status(200).json({ message: 'Login successful', token, id: admin._id });
+    // } catch (err) {
+    //     res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
+    // }
 };
 
 module.exports.passAdminDetails = async (req, res) => {
