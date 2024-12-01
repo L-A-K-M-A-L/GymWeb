@@ -18,7 +18,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 // app.options('*', cors(corsOptions));
-app.use(timeout('120000'));
+// app.use(timeout('120000'));
 app.use(express.json());
 app.use('/', userRoutes);
 
