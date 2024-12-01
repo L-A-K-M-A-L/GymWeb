@@ -1,34 +1,30 @@
 require('dotenv').config();
 const express = require('express');
-const app = express();
 const cors = require('cors');
-const connection = require('./config/db')
-
+const connection = require('./config/db');
 const userRoutes = require('./routes/UserRoutes');
 
+const app = express();
 connection();
 
-app.use(express.json());
 const corsOptions = {
-    origin: 'http://localhost:3001', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-    allowedHeaders: ['Content-Type', 'Authorization'], 
-    preflightContinue: false,  
-    optionsSuccessStatus: 204, 
-  };
+  origin: 'http://localhost:3001', // change to your frontend URL in production if necessary
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 
-  app.use(cors(corsOptions));
+app.use(express.json());
+app.use(cors(corsOptions));
 
 app.use('/', userRoutes);
 
-const port = process.env.PORT;
-
 app.get('/', (req, res) => {
-    res.send(`Server listening to port= ${port}...`);
-})
+  res.send(`Server listening on port ${process.env.PORT}...`);
+});
 
-
-
-app.listen(port, ()=>{
-    console.log(`Port listenng to ${port}....`);
-})
+// Export as serverless function
+module.exports = (req, res) => {
+  app(req, res);
+};
