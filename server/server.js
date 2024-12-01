@@ -1,30 +1,32 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connection = require('./config/db'); // Database connection
-const userRoutes = require('./routes/UserRoutes'); // User routes
+const connection = require('./config/db');
+const userRoutes = require('./routes/UserRoutes');
 
 const app = express();
 connection(); // Initialize database connection
 
-// Middleware
-app.use(express.json());
-
 // CORS Configuration
 const corsOptions = {
     origin: [
-        process.env.FRONTEND_URL || 'http://localhost:3001', // Frontend URL from environment or localhost
+        process.env.FRONTEND_URL || 'http://localhost:3001', // Frontend URL
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Enable cookies/auth headers
+    credentials: true,
     preflightContinue: false,
-    optionsSuccessStatus: 200, // Handle preflight responses with status 200
+    optionsSuccessStatus: 200,
 };
+
+// Apply CORS Middleware
 app.use(cors(corsOptions));
 
-// Preflight Handling for All Routes
+// Handle Preflight Requests
 app.options('*', cors(corsOptions));
+
+// Middleware
+app.use(express.json());
 
 // Routes
 app.use('/', userRoutes);
@@ -34,8 +36,8 @@ app.get('/', (req, res) => {
     res.send(`Server is running on port ${process.env.PORT || 5000}...`);
 });
 
-// Server Listener
-const port = process.env.PORT || 5000; // Fallback to 5000 if PORT is not defined
+// Start Server
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}...`);
 });
