@@ -8,7 +8,7 @@ const app = express();
 connection();
 
 const corsOptions = {
-    origin: [process.env.FRONTEND_URL || 'http://localhost:3001'],
+    origin: [process.env.FRONTEND_URL],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
