@@ -1,4 +1,5 @@
 require('dotenv').config();
+const timeout = require('connect-timeout');
 const express = require('express');
 const cors = require('cors');
 const connection = require('./config/db');
