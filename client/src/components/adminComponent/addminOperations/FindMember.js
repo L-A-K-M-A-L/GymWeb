@@ -18,7 +18,7 @@ const FindMember = () => {
       .then((response) => {
         if (response.data.status === 'success') {
           setMemberData(response.data.member);
-          setError(''); // Clear previous errors
+          setError(''); 
         }
       })
       .catch((error) => {
@@ -33,7 +33,7 @@ const FindMember = () => {
 
   return (
     <div className="p-5">
-      {/* Search Input */}
+
       <div className="flex flex-row gap-2">
         <input
           type="text"
@@ -53,12 +53,12 @@ const FindMember = () => {
         </button>
       </div>
 
-      {/* Display Error */}
+    
       {error && (
         <div className="text-red-500 mt-3">{error}</div>
       )}
 
-      {/* Display Member Details */}
+
       {memberData && (
         <div className="mt-5 p-4 border rounded-lg bg-gray-100">
           <h2 className="text-lg font-bold mb-3">Member Details</h2>

@@ -10,7 +10,6 @@ import WorkoutPlan from './components/userComponent/userPages/WorkoutPlan';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AddAdmin from './components/adminComponent/addminOperations/AddAdmin';
 import AddUser from './components/adminComponent/addminOperations/AddUser';
-
 import InstructorStat from './components/userComponent/userPages/InstructorStat';
 
 const router = createBrowserRouter(
@@ -29,12 +28,12 @@ const router = createBrowserRouter(
   ],
   {
     future: {
-      v7_relativeSplatPath: true, // Relative splat path support
-      v7_startTransition: true,    // StartTransition enabled for smooth state updates
+      v7_relativeSplatPath: true, 
+      v7_startTransition: true,   
       v7_skipActionErrorRevalidation: true,
       v7_partialHydration: true,
       v7_normalizeFormMethod: true,
-      v7_fetcherPersist: true,     // Persist fetcher data across transitions
+      v7_fetcherPersist: true,    
     },
   }
 );

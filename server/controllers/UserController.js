@@ -6,13 +6,13 @@ module.exports.registerUser = async (req, res) => {
     console.log(req.body);
 
     try {
-        // Check for duplicate email
+
         const existingUser = await userModel.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: 'Email already registered', status: 'fail' });
         }
 
-        // Save user to the database
+
         const user = await userModel.create({
             firstName,
             lastName,
@@ -20,10 +20,8 @@ module.exports.registerUser = async (req, res) => {
             password,
         });
 
-        // Generate JWT token
-        const token = jwt.sign({ email: email }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.status(201).json({ message: 'User registered', status: 'success', token, id: user._id });
+        res.status(201).json({ message: 'User registered', status: 'success', id: user._id });
     } catch (err) {
         res.status(500).json({ message: 'Registration failed', status: 'error', error: err.message });
     }
@@ -33,18 +31,15 @@ module.exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Find the user by email
         const user = await userModel.findOne({ email });
         if (!user) {
             return res.status(404).json({ status: 'fail', message: 'User not found' });
         }
 
-        // Check if the password matches
         if (user.password !== password) {
             return res.status(400).json({ status: 'fail', message: 'Invalid credentials' });
         }
 
-        // Generate JWT token
         const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '2h' });
 
         res.status(200).json({ message: 'Login successful', token, id: user._id });
@@ -57,7 +52,7 @@ module.exports.passUserDetails = async (req, res) => {
     const { email } = req.body;
 
     try {
-        const user = await userModel.findOne({email});
+        const user = await userModel.findOne({ email });
         if (!user) {
             return res.status(404).json({ status: 'fail', message: 'User not found' });
         }
@@ -70,13 +65,13 @@ module.exports.passUserDetails = async (req, res) => {
 
 
 module.exports.getUserLength = async (req, res) => {
-  try {
+    try {
 
-    const userCount = await userModel.countDocuments();
+        const userCount = await userModel.countDocuments();
 
-    return res.status(200).json({ count: userCount });
-  } catch (error) {
-    console.error("Error fetching user count:", error);
-    return res.status(500).json({ error: "Internal server error" });
-  }
+        return res.status(200).json({ count: userCount });
+    } catch (error) {
+        console.error("Error fetching user count:", error);
+        return res.status(500).json({ error: "Internal server error" });
+    }
 };

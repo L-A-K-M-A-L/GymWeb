@@ -24,7 +24,7 @@ const Contact = () => {
                         <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">Contact Us</h2>
                         <p className="leading-relaxed mb-5 text-gray-600">We would love to hear from you. Let us know how we can help you achieve your fitness goals!</p>
 
-                        {/* Email Field */}
+                    
                         <div className="relative mb-4">
                             <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
                             <input
@@ -35,7 +35,7 @@ const Contact = () => {
                             />
                         </div>
 
-                        {/* Message Field */}
+                    
                         <div className="relative mb-4">
                             <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
                             <textarea

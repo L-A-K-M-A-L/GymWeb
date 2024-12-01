@@ -28,7 +28,7 @@ const Login = () => {
                 }
             })
             .catch(err => {
-                console.error('Axios error:', err); // Log the full error object for more details
+                console.error('Axios error:', err); 
                 const message = err.response?.data?.message || "Something went wrong. Please try again.";
                 setStateMessage(message);
             });

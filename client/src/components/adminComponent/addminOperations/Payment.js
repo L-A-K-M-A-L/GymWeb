@@ -55,10 +55,10 @@ const PaymentForm = () => {
             });
 
 
-            axios.put(`${baseURL}/api/updatePaymnet/${userEmail}`, {
-                selectedPlan,
-                paymentDate,
-            })
+        axios.put(`${baseURL}/api/updatePaymnet/${userEmail}`, {
+            selectedPlan,
+            paymentDate,
+        })
             .then((res) => {
                 if (res.data.status === 'success') {
                     console.log('Payment details updated successfully:', res.data);
@@ -69,7 +69,7 @@ const PaymentForm = () => {
             .catch((err) => {
                 console.error('Error updating payment details:', err);
             });
-            
+
     };
 
     return (
@@ -80,7 +80,7 @@ const PaymentForm = () => {
             <div className="font-mono p-6">
 
 
-                {/* Dropdown for Plan Selection */}
+
                 <div className="mb-4">
 
                     <select
@@ -97,7 +97,7 @@ const PaymentForm = () => {
                 </div>
 
                 <form className="space-y-4">
-                    {/* User Email */}
+
                     <div>
                         <label className="block text-gray-700">Email</label>
                         <input
@@ -110,7 +110,7 @@ const PaymentForm = () => {
                         />
                     </div>
 
-                    {/* Payment Date and Time */}
+
                     <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                         <div className="flex-1">
                             <label className="block text-gray-700">Payment Date</label>
@@ -134,12 +134,12 @@ const PaymentForm = () => {
                         </div>
                     </div>
 
-                    {/* State Message */}
+
                     {stateMessage && (
                         <p className="text-green-500 text-sm text-center">{stateMessage}</p>
                     )}
 
-                    {/* Submit Button */}
+
                     <div className="text-center">
                         <button
                             type="button"

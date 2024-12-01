@@ -15,7 +15,6 @@ const UserDetails = () => {
   useEffect(() => {
     const userEmail = localStorage.getItem("userEmail");
 
-    // Fetch user basic details
     axios
       .post(`${baseURL}/api/getUserDetails`, { email: userEmail })
       .then((response) => {
@@ -30,7 +29,7 @@ const UserDetails = () => {
         console.error("Error fetching user details:", err);
       });
 
-    // Fetch user membership details
+
     axios
       .post(`${baseURL}/api/getMemberDetails`, { email: userEmail })
       .then((response) => {
@@ -43,7 +42,6 @@ const UserDetails = () => {
           setMonthlyPlan(membership);
           setPlanActivateDate(planActivateDate);
 
-          // Calculate plan expiration date
           const activationDate = new Date(planActivateDate);
           let expirationDate;
 
@@ -67,7 +65,6 @@ const UserDetails = () => {
 
           setPlanExpirationDate(expirationDate.toISOString().split("T")[0]);
 
-          // Determine membership status
           const currentDate = new Date();
           if (expirationDate > currentDate) {
             setMembershipStatus("Active");

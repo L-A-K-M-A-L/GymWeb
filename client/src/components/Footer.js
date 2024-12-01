@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="bg-gray-300 text-slate-200  mt-1 py-6">
             <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
-                {/* Logo and Branding */}
+                
                 <div className="flex items-center mb-4 sm:mb-0">
                     <img src="/svg/logo.svg" alt="Logo" className="w-7 mr-2" />
                     <div className="flex flex-col sm:flex-row items-center">
@@ -14,12 +14,10 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Copyright Info */}
                 <p className="text-sm text-gray-600 sm:ml-4 sm:border-l-2 sm:border-gray-400 sm:pl-4 sm:py-2">
-                    ©2024 by lakmalPrasanna
+                    ©2024: Web by lakmalPrasanna
                 </p>
 
-                {/* Social Media Links */}
                 <div className="flex space-x-4 mt-4 sm:mt-0">
                     <Link to="https://facebook.com" className="text-gray-600 hover:text-indigo-500">
                         <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">

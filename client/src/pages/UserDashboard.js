@@ -13,7 +13,7 @@ const UserDashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const userEmail = localStorage.getItem('userEmail'); // Get the email from localStorage
+        const userEmail = localStorage.getItem('userEmail'); 
 
         if (!userEmail) {
             navigate('/login');

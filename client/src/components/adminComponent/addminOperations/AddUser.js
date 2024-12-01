@@ -49,11 +49,11 @@ const AddUser = () => {
                                         <img src='/images/logo.png' alt='LOGO' className='w-full h-full rounded-l' />
                                     </div>
 
-                                    {/* Form Section */}
+             
                                     <div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
                                         <h3 className="py-4 text-2xl md:text-6xl text-center text-slate-600 md:mb-5 dark:text-white">Register Member!</h3>
                                         <form onSubmit={handleMemberRegistration} className="space-y-6">
-                                            {/* Email */}
+                                     
                                             <div>
                                                 <label htmlFor="email" className="block  font-bold text-slate-500 dark:text-white">
                                                     Email
@@ -69,7 +69,7 @@ const AddUser = () => {
                                                 />
                                             </div>
 
-                                            {/* Membership */}
+
                                             <div>
                                                 <label htmlFor="membership" className="block font-bold text-slate-500 dark:text-white">
                                                     Membership
@@ -85,7 +85,6 @@ const AddUser = () => {
                                                 />
                                             </div>
 
-                                            {/* Phone */}
                                             <div>
                                                 <label htmlFor="phone" className="block  font-bold text-slate-500 dark:text-white">
                                                     Mobile No
@@ -101,7 +100,7 @@ const AddUser = () => {
                                                 />
                                             </div>
 
-                                            {/* Age */}
+            
                                             <div>
                                                 <label htmlFor="age" className="block  font-bold text-slate-500 dark:text-white">
                                                     Age
@@ -117,7 +116,7 @@ const AddUser = () => {
                                                 />
                                             </div>
 
-                                            {/* Plan Activation Date */}
+
                                             <div>
                                                 <label htmlFor="planActivateDate" className="block font-bold text-slate-500 dark:text-white">
                                                     Plan Activation Date
@@ -132,12 +131,12 @@ const AddUser = () => {
                                                 />
                                             </div>
 
-                                            {/* State Message */}
+                     
                                             {stateMessage && (
                                                 <p className="text-red-500 text-sm text-center">{stateMessage}</p>
                                             )}
 
-                                            {/* Submit Button */}
+
                                             <div className="text-center">
                                                 <button
                                                     type="submit"

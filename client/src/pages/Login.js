@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import UserLogin from '../components/userComponent/UserLogin';
 import CustomHeader from '../components/CustomHeader';
 import AdminLogin from '../components/adminComponent/AdminLogin';
+import Footer from '../components/Footer';
 
 const UserDashboard = () => {
-  const [view, setView] = useState('workout'); // 'workout' or 'payment'
+  const [view, setView] = useState('');
   const toggleView = () => {
     setView(view === 'user' ? 'admin' : 'user');
   };
@@ -13,7 +14,7 @@ const UserDashboard = () => {
 
   return (
     <>
-      <div className='flex flex-col min-h-screen font-mono bg-slate-400'>
+      <div className='flex flex-col min-h-screen font-mono bg-gray-200'>
         <CustomHeader />
         <main className='flex-grow py-10 md:py-24 px-4 md:px-20'>
           <div className='flex justify-end'>
@@ -34,6 +35,7 @@ const UserDashboard = () => {
             <UserLogin />
           )}
         </main>
+        <Footer />
       </div>
     </>
   );

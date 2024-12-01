@@ -8,14 +8,13 @@ const userRoutes = require('./routes/UserRoutes');
 
 connection();
 
-// middleware
 app.use(express.json());
 const corsOptions = {
-    origin: 'http://localhost:3001', // Allow the frontend to make requests
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    preflightContinue: false,  // Allow preflight OPTIONS requests
-    optionsSuccessStatus: 204, // Status code for successful preflight request
+    origin: 'http://localhost:3001', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+    preflightContinue: false,  
+    optionsSuccessStatus: 204, 
   };
 
   app.use(cors(corsOptions));

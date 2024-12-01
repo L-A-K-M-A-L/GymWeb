@@ -81,7 +81,7 @@ const AddAdmin = () => {
                                             onSubmit={handleRegister}
                                             className="px-8 pt-6 pb-8 mb-4 dark:bg-gray-800 rounded space-y-4"
                                         >
-                                            {/* First Name */}
+                       
                                             <div>
                                                 <label
                                                     className="block mb-2 text-md font-bold text-slate-500 dark:text-white"
@@ -99,7 +99,7 @@ const AddAdmin = () => {
                                                 />
                                             </div>
 
-                                            {/* Last Name */}
+                             
                                             <div>
                                                 <label
                                                     className="block mb-2 text-md font-bold text-slate-500 dark:text-white"
@@ -117,7 +117,7 @@ const AddAdmin = () => {
                                                 />
                                             </div>
 
-                                            {/* Email */}
+                            
                                             <div>
                                                 <label
                                                     className="block mb-2 text-md font-bold text-slate-500 dark:text-white"
@@ -135,7 +135,6 @@ const AddAdmin = () => {
                                                 />
                                             </div>
 
-                                            {/* Password */}
                                             <div>
                                                 <label
                                                     className="block mb-2 text-md font-bold text-slate-500 dark:text-white"
@@ -171,7 +170,7 @@ const AddAdmin = () => {
                                                 />
                                             </div>
 
-                                            {/* State Message */}
+       
                                             <div className="mb-4 text-center">
                                                 <p className="text-xs italic text-red-500">
                                                     {stateMessage}
