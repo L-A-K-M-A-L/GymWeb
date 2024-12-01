@@ -41,7 +41,7 @@ const UserHeader = () => {
       </div>
 
       {/* Hamburger menu */}
-      <div className="md:hidden flex items-center">
+      {/* <div className="md:hidden flex items-center">
         <button
           onClick={() => setIsNavOpen(!isNavOpen)}
           className="text-gray-700 focus:outline-none"
@@ -61,10 +61,10 @@ const UserHeader = () => {
             />
           </svg>
         </button>
-      </div>
+      </div> */}
 
       {/* Navbar */}
-      <nav
+      {/* <nav
         className={`${
           isNavOpen ? "flex" : "hidden"
         } flex-col md:flex md:flex-row md:space-x-6 text-lg font-medium flex-grow justify-center items-center md:items-center space-y-4 md:space-y-0`}
@@ -99,7 +99,7 @@ const UserHeader = () => {
         >
           Workout Plan
         </Link>
-      </nav>
+      </nav> */}
 
       {/* Logout button */}
       <div className="flex items-center gap-4 mt-4 md:mt-0">

@@ -65,3 +65,11 @@ module.exports.passAdminDetails = async (req, res) => {
         res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
     }
 };
+module.exports.getAdminLength = async (req, res) => {
+    try {
+        const count = await adminModel.countDocuments();
+        res.status(200).json({ status: 'success', count });
+    } catch (err) {
+        res.status(500).json({ status: 'error', message: 'Internal server error', error: err.message });
+    }
+}

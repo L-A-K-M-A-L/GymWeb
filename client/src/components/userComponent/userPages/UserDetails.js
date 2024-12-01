@@ -47,19 +47,19 @@ const UserDetails = () => {
           const activationDate = new Date(planActivateDate);
           let expirationDate;
 
-          if (membership === "Monthly") {
+          if (membership === "1-month") {
             expirationDate = new Date(
               activationDate.setMonth(activationDate.getMonth() + 1)
             );
-          } else if (membership === "3 Month Plan") {
+          } else if (membership === "3-months") {
             expirationDate = new Date(
               activationDate.setMonth(activationDate.getMonth() + 3)
             );
-          } else if (membership === "6 Month Plan") {
+          } else if (membership === "6-months") {
             expirationDate = new Date(
               activationDate.setMonth(activationDate.getMonth() + 6)
             );
-          } else if (membership === "Annual Plan") {
+          } else if (membership === "annual") {
             expirationDate = new Date(
               activationDate.setFullYear(activationDate.getFullYear() + 1)
             );

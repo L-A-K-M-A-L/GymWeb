@@ -35,12 +35,11 @@ const PaymentForm = () => {
             return;
         }
 
-        // Simulate API call to send the payment details
+
         alert(`Payment initiated for the ${selectedPlan} plan.`);
 
-        // Send confirmation email (simulated)
         axios
-            .post('https://your-api-endpoint.com/send-email', {
+            .post(`${baseURL}/api/sendMail`, {
                 email: userEmail,
                 plan: selectedPlan,
                 date: paymentDate,
@@ -50,22 +49,27 @@ const PaymentForm = () => {
                 setStateMessage('Payment successful! Confirmation email sent to user.');
                 console.log('Payment and email details sent:', { userEmail, selectedPlan, paymentDate, paymentTime });
             })
-            .catch(() => {
+            .catch((err) => {
                 setStateMessage('Payment successful but failed to send confirmation email.');
+                console.error('Error sending email:', err);
             });
 
-        // Update payment details in the database
-        axios.put(`${baseURL}/api/updatePaymnet/${userEmail}`, {
-            selectedPlan,
-            paymentDate,
-        }).then((res) => {
-            if (res.data.status === 'success') {
-                console.log('Payment details updated successfully: ', res.data);
-            }
-        })
+
+            axios.put(`${baseURL}/api/updatePaymnet/${userEmail}`, {
+                selectedPlan,
+                paymentDate,
+            })
+            .then((res) => {
+                if (res.data.status === 'success') {
+                    console.log('Payment details updated successfully:', res.data);
+                } else {
+                    console.error('Payment update failed:', res.data.message);
+                }
+            })
             .catch((err) => {
-                console.error('Error updating payment details: ', err);
+                console.error('Error updating payment details:', err);
             });
+            
     };
 
     return (

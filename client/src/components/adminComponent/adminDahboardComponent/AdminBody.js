@@ -11,6 +11,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 const AdminBody = () => {
   const [users, setUsers] = useState(120);
   const [members, setMembers] = useState(50);
+  const [admin, setAdmin] = useState(10);
 
   useEffect(() => {
     axios.get(`${baseURL}/api/getAllUser`)
@@ -24,6 +25,14 @@ const AdminBody = () => {
     axios.get(`${baseURL}/api/getAllMember`)
       .then((response) => {
         setMembers(response.data.count);
+      })
+      .catch((error) => {
+        console.error('Error fetching data: ', error);
+      });
+
+      axios.get(`${baseURL}/api/getAllAdmin`)
+      .then((response) => {
+        setAdmin(response.data.count);
       })
       .catch((error) => {
         console.error('Error fetching data: ', error);
@@ -53,8 +62,8 @@ const AdminBody = () => {
 
           {/* Monthly Income Card */}
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-700">Monthly Income</h3>
-            <p className="mt-2 text-gray-500">USD</p>
+            <h3 className="text-lg font-semibold text-gray-700">TOTAL ADMIN</h3>
+            <p className="mt-2 text-gray-500">{admin} admins</p>
           </div>
         </div>
 
