@@ -17,7 +17,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        await axios.post(`${baseURL}/api/adminlogin`, { email, password }, {withCredentials: true})
+        await axios.post(`${baseURL}/api/adminlogin`, { email, password })
             .then(response => {
                 if (response.status === 200) {
                     localStorage.setItem('adminEmail', email);
