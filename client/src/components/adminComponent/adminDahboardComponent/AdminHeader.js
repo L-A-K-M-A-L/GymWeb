@@ -116,7 +116,7 @@ const AdminHeader = () => {
         >
           Add User
         </Link>
-        <Link
+        {/* <Link
           to="/Payments"
           className={`px-4 py-2 rounded-lg ${
             window.location.pathname === "/Payments"
@@ -125,7 +125,7 @@ const AdminHeader = () => {
           }`}
         >
           Payments
-        </Link>
+        </Link> */}
       </nav>
 
       {/* Logout Section */}

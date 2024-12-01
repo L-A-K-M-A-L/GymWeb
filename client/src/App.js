@@ -10,7 +10,7 @@ import WorkoutPlan from './components/userComponent/userPages/WorkoutPlan';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AddAdmin from './components/adminComponent/addminOperations/AddAdmin';
 import AddUser from './components/adminComponent/addminOperations/AddUser';
-import Payment from './services/Payment';
+
 import InstructorStat from './components/userComponent/userPages/InstructorStat';
 
 const router = createBrowserRouter(
@@ -25,7 +25,6 @@ const router = createBrowserRouter(
     { path: "/WorkoutPlan", element: <WorkoutPlan /> },
     { path: "/AddAdmin", element: <AddAdmin />},
     { path: "/AddUser", element: <AddUser />},
-    { path: "/Payments", element: <Payment />},
     { path: "/InstructorStat", element: <InstructorStat/> },
   ],
   {

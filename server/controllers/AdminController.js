@@ -17,9 +17,9 @@ module.exports.addAdmin = async (req, res) => {
             password,
         });
 
-        const token = jwt.sign({ email: email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        // const token = jwt.sign({ email: email }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.status(201).json({ message: 'Admin registered', status: 'success', token, id: admin._id });
+        res.status(201).json({ message: 'Admin registered', status: 'success',  id: admin._id });
     }catch(err){
         res.status(500).json({ message: 'Registration failed', status: 'error', error: err.message });
     }
